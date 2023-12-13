@@ -21,7 +21,6 @@ public class BookDAOImpl implements BookDAO {
 
     public List<Book> getAllBook(SqlSession sqlSession) {
         List<Book> books=sqlSession.selectList("BookMapper.selectAll");
-        sqlSession.close();
         return books;
     }
 }
