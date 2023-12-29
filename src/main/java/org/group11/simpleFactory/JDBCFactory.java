@@ -1,4 +1,4 @@
-package org.group11.patterns;
+package org.group11.simpleFactory;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -6,9 +6,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.InputStream;
-import java.util.List;
 
-public class FactoryJDBC {
+public class JDBCFactory {
     public static SqlSession Instance(){
         String resource = "mybatis-config.xml";
         InputStream inputStream = null;

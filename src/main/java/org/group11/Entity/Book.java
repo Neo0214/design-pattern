@@ -1,4 +1,4 @@
-package org.group11.entity;
+package org.group11.Entity;
 
 
 public class Book {
