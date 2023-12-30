@@ -1,4 +1,7 @@
-package org.group11.simpleFactory;
+/*
+ * @author Neo0214
+ */
+package org.group11.Patterns.simpleFactory;
 
 import java.util.HashMap;
 import java.util.Map;
