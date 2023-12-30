@@ -25,8 +25,5 @@ public class VReturnBookProxy implements ReturnBook{
         // else do:
         System.out.println("密码错误");
         return false;
-
-
-
     }
 }
