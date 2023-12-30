@@ -24,14 +24,45 @@ public class MainInterface {
         while (true){
             String msg=getInput();
             if (msg.equals("1")){
-                Service service = ServiceLocator.getService("ReturnBookService");
+                Service service = ServiceLocator.getService("CreateUserService");
                 service.execute("0");
             } else if (msg.equals("2")) {
-                // do something
-            }else if (msg.equals("10")){
-                // do something
-            }
-            else if (msg.equals("q")) {
+                Service service = ServiceLocator.getService("UserLoginService");
+                service.execute("");
+            }else if (msg.equals("3")){
+                Service service = ServiceLocator.getService("AdminLoginService");
+                service.execute("");
+            }else if (msg.equals("4")) {
+                Service service = ServiceLocator.getService("BorrowBookService");
+                service.execute("");
+            }else if (msg.equals("5")) {
+                Service service = ServiceLocator.getService("ReturnBookService");
+                service.execute("");
+            }else if (msg.equals("6")) {
+                Service service = ServiceLocator.getService("RemindReturnService");
+                service.execute("");
+            }else if (msg.equals("7")) {
+                Service service = ServiceLocator.getService("QueryAccountService");
+                service.execute("");
+            }else if (msg.equals("8")) {
+                Service service = ServiceLocator.getService("QueryBookService");
+                service.execute("");
+            }else if (msg.equals("9")) {
+                Service service = ServiceLocator.getService("GiveBookService");
+                service.execute("");
+            }else if (msg.equals("10")) {
+                Service service = ServiceLocator.getService("OrderCoffeeService");
+                service.execute("");
+            }else if (msg.equals("11")) {
+                Service service = ServiceLocator.getService("ShelfManageService");
+                service.execute("");
+            }else if (msg.equals("12")) {
+                Service service = ServiceLocator.getService("UseRoomService");
+                service.execute("");
+            }else if (msg.equals("13")) {
+                Service service = ServiceLocator.getService("CommentBookService");
+                service.execute("");
+            }else if (msg.equals("q")) {
                 break;
             }
         }
@@ -39,8 +70,20 @@ public class MainInterface {
     }
 
     public void printMenu(){
-        System.out.println("1. 还书");
-        System.out.println("2. 查询用户");
+        System.out.println("1. 创建用户");
+        System.out.println("2. 用户登录");
+        System.out.println("3. 管理员登录");
+        System.out.println("4. 借书");
+        System.out.println("5. 还书");
+        System.out.println("6. 提醒还书");
+        System.out.println("7. 查询账号");
+        System.out.println("8. 查询图书");
+        System.out.println("9. 赠书");
+        System.out.println("10. 点咖啡");
+        System.out.println("11. 书架整理");
+        System.out.println("12. 自习室预约");
+        System.out.println("13. 图书评价");
+        System.out.println("q. 退出");
 
     }
     private String getInput(){

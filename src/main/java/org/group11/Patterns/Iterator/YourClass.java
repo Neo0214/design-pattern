@@ -1,4 +1,4 @@
-package org.group11.Patterns.abstractFactory;
+package org.group11.Patterns.Iterator;
 
 /*
  * @author Neo0214
