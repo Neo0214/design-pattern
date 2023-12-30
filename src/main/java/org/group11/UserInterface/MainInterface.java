@@ -4,9 +4,6 @@
 package org.group11.UserInterface;
 
 import org.group11.Patterns.DAO.Impl.UserPasswordImpl;
-import org.group11.Patterns.Proxy.ReturnBook;
-import org.group11.Patterns.Proxy.VReturnBook;
-import org.group11.Patterns.Proxy.VReturnBookProxy;
 import org.group11.Patterns.Strategy.MyQuery;
 import org.group11.Patterns.Strategy.QueryByBorrow;
 import org.group11.Patterns.Strategy.QueryByName;
@@ -32,7 +29,7 @@ public class MainInterface {
             } else if (msg.equals("2")) {
                 // do something
             }else if (msg.equals("10")){
-                execQueryAccount("0");
+                // do something
             }
             else if (msg.equals("q")) {
                 break;
@@ -43,7 +40,7 @@ public class MainInterface {
 
     public void printMenu(){
         System.out.println("1. 还书");
-
+        System.out.println("2. 查询用户");
 
     }
     private String getInput(){

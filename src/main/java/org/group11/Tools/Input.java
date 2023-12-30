@@ -1,7 +1,7 @@
 /*
  * @author Neo0214
  */
-package org.group11.tools;
+package org.group11.Tools;
 
 import java.util.Scanner;
 

@@ -6,9 +6,7 @@ package org.group11.Patterns.serviceLocator;
 import org.group11.Patterns.Proxy.ReturnBook;
 import org.group11.Patterns.Proxy.VReturnBook;
 import org.group11.Patterns.Proxy.VReturnBookProxy;
-import org.group11.tools.Input;
-
-import java.util.Scanner;
+import org.group11.Tools.Input;
 
 public class ReturnBookService implements Service{
     @Override
