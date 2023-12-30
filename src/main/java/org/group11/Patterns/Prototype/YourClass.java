@@ -1,4 +1,4 @@
-package org.group11.Patterns.abstractFactory;
+package org.group11.Patterns.Prototype;
 
 /*
  * @author Neo0214

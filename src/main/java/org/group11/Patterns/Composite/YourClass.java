@@ -1,4 +1,4 @@
-package org.group11.Patterns.abstractFactory;
+package org.group11.Patterns.Composite;
 
 /*
  * @author Neo0214
