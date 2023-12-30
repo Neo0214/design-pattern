@@ -3,7 +3,7 @@
  */
 package org.group11.Patterns.Proxy;
 
-import org.group11.Patterns.DAO.Impl.UserPasswordImpl;
+import org.group11.Patterns.DAO.Impl.UserImpl;
 
 import java.util.Scanner;
 
@@ -18,7 +18,7 @@ public class VReturnBookProxy implements ReturnBook{
         System.out.print("输入密码确认：");
         Scanner scanner = new Scanner(System.in);
         String password = scanner.nextLine();
-        if (new UserPasswordImpl().checkPassword(userId,password)){
+        if (new UserImpl().checkPassword(userId,password)){
             // 密码正确
             return this.returnBook.returnBook(bookId,userId);
         }
