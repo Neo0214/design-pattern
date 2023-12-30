@@ -1,4 +1,7 @@
-package org.group11.simpleFactory;
+/*
+ * @author Neo0214
+ */
+package org.group11.Patterns.simpleFactory;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -19,6 +22,7 @@ public class JDBCFactory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         return null;
     }
 

@@ -1,13 +1,13 @@
+/*
+ * @author Neo0214
+ */
 package org.group11.Patterns.DAO.Impl;
 
 import org.apache.ibatis.session.SqlSession;
 import org.group11.Patterns.DAO.BorrowMapper;
-import org.group11.simpleFactory.JDBCFactory;
-import org.group11.simpleFactory.ParamFactory;
+import org.group11.Patterns.simpleFactory.JDBCFactory;
+import org.group11.Patterns.simpleFactory.ParamFactory;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Map;
 
 public class BorrowMapperImpl implements BorrowMapper {
