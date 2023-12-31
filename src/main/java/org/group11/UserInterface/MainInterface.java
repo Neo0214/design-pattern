@@ -40,7 +40,7 @@ public class MainInterface {
                 service.execute("");
             }else if (msg.equals("6")) {
                 Service service = ServiceLocator.getService("RemindReturnService");
-                service.execute("");
+                service.execute("1");
             }else if (msg.equals("7")) {
                 Service service = ServiceLocator.getService("QueryAccountService");
                 service.execute("");
