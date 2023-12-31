@@ -30,8 +30,11 @@ public class MainInterface {
                 //这里是执行服务，在这里传入你的服务所需要的id
                 //接下来查看servicelocator的类文件，路径是org.group11.Patterns.serviceLocator.InitalContext
                 service.execute("0");
-            } else if (msg.equals("2")) {
-                // do something
+            } else if (msg.equals("1")) {
+                Service service = ServiceLocator.getService("OrderCoffeeService");
+                //这里输入用户id
+                service.execute("0");
+
             }else if (msg.equals("10")){
                 // do something
             }
@@ -44,11 +47,7 @@ public class MainInterface {
 
     public void printMenu(){
         System.out.println("1. 还书");
-<<<<<<< Updated upstream
         System.out.println("2. 查询用户");
-
-=======
->>>>>>> Stashed changes
     }
     private String getInput(){
         while (!scanner.hasNextLine()){
