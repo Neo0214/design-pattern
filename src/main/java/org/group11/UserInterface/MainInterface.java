@@ -3,10 +3,6 @@
  */
 package org.group11.UserInterface;
 
-import org.group11.Patterns.DAO.Impl.UserPasswordImpl;
-import org.group11.Patterns.Strategy.MyQuery;
-import org.group11.Patterns.Strategy.QueryByBorrow;
-import org.group11.Patterns.Strategy.QueryByName;
 import org.group11.Patterns.serviceLocator.Service;
 import org.group11.Patterns.serviceLocator.ServiceLocator;
 
@@ -20,8 +16,8 @@ public class MainInterface {
     }
     public void run(){
         System.out.println("start");
-        printMenu();
         while (true){
+            printMenu();
             String msg=getInput();
             if (msg.equals("1")){
                 Service service = ServiceLocator.getService("CreateUserService");
@@ -37,7 +33,7 @@ public class MainInterface {
                 service.execute("");
             }else if (msg.equals("5")) {
                 Service service = ServiceLocator.getService("ReturnBookService");
-                service.execute("");
+                service.execute("0");
             }else if (msg.equals("6")) {
                 Service service = ServiceLocator.getService("RemindReturnService");
                 service.execute("1");
@@ -65,6 +61,8 @@ public class MainInterface {
             }else if (msg.equals("q")) {
                 break;
             }
+            System.out.println("按回车键继续");
+            getInput();
         }
 
     }
@@ -94,27 +92,5 @@ public class MainInterface {
 
 
 
-    public void execQueryAccount(String adminId){
-        System.out.print("输入密码确认：");
-        Scanner scanner = new Scanner(System.in);
-        String password = scanner.nextLine();
-        if (new UserPasswordImpl().checkPassword(Integer.parseInt(adminId),password)){
-            // 密码正确
-            System.out.println("选择查询方法：1.按借书查询 2.按姓名查询");
-            String choice = getInput();
-            if (choice.equals("1")){
-                System.out.print("正在查询所有借书人信息...");
-                MyQuery myQuery = new MyQuery(new QueryByBorrow());
-                myQuery.queryAccount();
-            }
-            else if (choice.equals("2")){
-                System.out.print("请输入被查询者姓名:");
-                String name = getInput();
-                MyQuery myQuery = new MyQuery(new QueryByName());
-                myQuery.queryAccount();
-            }
-        }else{
-            System.out.println("密码错误");
-        }
-    }
+
 }
