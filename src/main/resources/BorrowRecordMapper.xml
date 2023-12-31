@@ -8,4 +8,13 @@
         set return_time = #{returnDate}, borrow_condition = '已还'
         where book_id = #{bookId} and id = #{userId};
     </update>
+    <select id="allBorrowUser" resultType="org.group11.Entity.User">
+        select *
+        from Users
+        where id in (
+            select id
+            from borrow_record
+            where borrow_condition= '未还'
+        );
+    </select>
 </mapper>

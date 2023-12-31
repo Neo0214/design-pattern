@@ -4,13 +4,15 @@
 package org.group11.Patterns.DAO.Impl;
 
 import org.apache.ibatis.session.SqlSession;
+import org.group11.Entity.User;
 import org.group11.Patterns.DAO.BorrowMapper;
 import org.group11.Patterns.simpleFactory.JDBCFactory;
 import org.group11.Patterns.simpleFactory.ParamFactory;
 
+import java.util.List;
 import java.util.Map;
 
-public class BorrowMapperImpl implements BorrowMapper {
+public class BorrowImpl implements BorrowMapper {
     @Override
     public boolean returnBook(int bookId, int userId, String curTime){
         Map<String,String> params = ParamFactory.getParam("returnDate",curTime,"bookId",String.valueOf(bookId),"userId",String.valueOf(userId));
@@ -22,5 +24,13 @@ public class BorrowMapperImpl implements BorrowMapper {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<User> queryBorrowUsers(){
+        SqlSession sqlSession = JDBCFactory.Instance();
+        List<User> users =sqlSession.selectList("BorrowRecordMapper.allBorrowUser");
+        sqlSession.close();
+        return users;
     }
 }
