@@ -2,7 +2,7 @@ package org.group11.Patterns.Observer;
 
 import java.util.List;
 import org.group11.Entity.Borrow;
-import org.group11.Patterns.Singleton.ReminderService;
+import org.group11.Patterns.Singleton.ReminderSingleton;
 
 public class User implements Observer {
     private String name;
@@ -20,7 +20,7 @@ public class User implements Observer {
 
     private void checkAndRemindUnreturnedBooks() {
         // 通过 ReminderService 获取未归还书籍列表
-        List<Borrow> unreturnedBooks = ReminderService.getInstance().remind(this.userId);
+        List<Borrow> unreturnedBooks = ReminderSingleton.getInstance().remind(this.userId);
 
         // 提醒用户未归还的书籍
         if (unreturnedBooks != null && !unreturnedBooks.isEmpty()) {
