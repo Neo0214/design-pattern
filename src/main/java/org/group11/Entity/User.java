@@ -5,6 +5,7 @@ package org.group11.Entity;
  */
 public class User {
     private int id;
+    private String password;
     private String user_name;
 
     public int getId() {
@@ -15,6 +16,10 @@ public class User {
         return user_name;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -23,8 +28,12 @@ public class User {
         this.user_name = user_name;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString(){
-        return "id:"+id+" name:"+user_name;
+        return "id:"+id+" name:"+user_name+" password:"+password;
     }
 }
