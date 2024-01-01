@@ -32,4 +32,11 @@
         from borrow_record
         where id = #{userId} and (borrow_condition = '未还' or borrow_condition = '逾期');
     </select>
+    <select id="latestBorrow" resultType="java.lang.String">
+        select book_name
+        from borrow_record join book on borrow_record.book_id = book.book_id
+        where id = #{userId}
+        order by borrow_record.borrow_time desc
+        limit 1;
+    </select>
 </mapper>
