@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+    <select id="checkPassword" resultType="java.lang.Integer">
+        select count(*)
+        from Users
+        where id = #{id}
+            and user_key = #{user_key};
+    </select>
+    <select id="getUser" resultType="org.group11.Patterns.transforObject.UserTO">
+        select *
+        from Users
+        where user_name = #{name}
+            and user_key = #{user_key};
+    </select>
+    <select id="getMaxId" resultType="java.lang.Integer">
+        select max(id) as maxId
+        from Users;
+    </select>
+    <insert id="insertUser">
+        insert into Users (id, user_name, user_key) values(#{id}, #{name}, #{user_key});
+    </insert>
+</mapper>

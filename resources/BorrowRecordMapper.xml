@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BorrowRecordMapper">
+    <update id="returnBook">
+        update borrow_record
+        set return_time = #{returnDate}, borrow_condition = '已还'
+        where book_id = #{bookId} and id = #{userId};
+    </update>
+    <select id="allBorrowUser" resultType="org.group11.Entity.User">
+        select *
+        from Users
+        where id in (
+            select id
+            from borrow_record
+            where borrow_condition= '未还'
+        );
+    </select>
+
+    <insert id="borrowBook" parameterType="java.util.Map">
+        insert into borrow_record (book_id, id, borrow_time, borrow_condition)
+        values (#{bookId}, #{userId}, #{borrowDate}, '未还')
+    </insert>
+    <select id="isBorrowed" resultType="java.lang.Integer">
+        select count(*)
+        from borrow_record
+        where book_id = #{bookId} and (borrow_condition = '未还' or borrow_condition = '逾期');
+    </select>
+    <select id="hasUnreturned" resultType="java.lang.Integer">
+        select count(*)
+        from borrow_record
+        where id = #{userId} and (borrow_condition = '未还' or borrow_condition = '逾期');
+    </select>
+    <select id="latestBorrow" resultType="java.lang.String">
+        select book_name
+        from borrow_record join book on borrow_record.book_id = book.book_id
+        where id = #{userId}
+        order by borrow_record.borrow_time desc
+        limit 1;
+    </select>
+</mapper>
