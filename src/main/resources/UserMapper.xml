@@ -9,4 +9,9 @@
         where id = #{id}
             and user_key = #{user_key};
     </select>
+    <select id="getUserByName" resultType="org.group11.Entity.User">
+        select *
+        from Users
+        where user_name = #{name};
+    </select>
 </mapper>
