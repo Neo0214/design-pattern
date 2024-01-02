@@ -4,7 +4,6 @@
 package org.group11.Patterns.Strategy;
 
 import org.group11.Entity.User;
-import org.group11.Patterns.DAO.Impl.UserImpl;
 
 import java.util.List;
 

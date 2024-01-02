@@ -5,7 +5,6 @@ package org.group11.Patterns.DAO.Impl;
 
 import org.apache.ibatis.session.SqlSession;
 import org.group11.Entity.User;
-import org.group11.Patterns.DAO.UserMapper;
 import org.group11.Patterns.simpleFactory.JDBCFactory;
 import org.group11.Patterns.simpleFactory.ParamFactory;
 import org.group11.Patterns.transforObject.UserTO;

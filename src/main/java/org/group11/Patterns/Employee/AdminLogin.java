@@ -1,10 +1,6 @@
 package org.group11.Patterns.Employee;
 
-import java.util.List;
-
 import org.group11.Patterns.DAO.Impl.AdminPasswordImpl;
-import org.group11.Patterns.DAO.Impl.UserImpl;
-import org.group11.Patterns.transforObject.UserTO;
 
 public class AdminLogin implements IClean {
     public void cleaned(String name,String password) {

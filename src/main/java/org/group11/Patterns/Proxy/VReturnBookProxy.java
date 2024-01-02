@@ -3,8 +3,6 @@
  */
 package org.group11.Patterns.Proxy;
 
-import org.group11.Patterns.DAO.Impl.UserImpl;
-
 import java.util.Scanner;
 
 public class VReturnBookProxy implements ReturnBook{
