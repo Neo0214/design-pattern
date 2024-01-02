@@ -1,6 +1,7 @@
 package org.group11.Patterns.ChainOfResponsibility;
 
 import java.util.regex.Pattern;
+import org.group11.Patterns.DAO.Impl.UserImpl;
 
 public class PasswordHandler extends LoginHandler{
     @Override

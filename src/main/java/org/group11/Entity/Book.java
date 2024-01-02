@@ -1,47 +1,26 @@
 package org.group11.Entity;
-
+import org.group11.Patterns.State.BookState;
+import org.group11.Patterns.State.AvailableBookState;
+import org.group11.Patterns.State.BorrowedBookState;
+import org.group11.Patterns.DAO.Impl.BorrowImpl;
 public class Book {
-    //包括编号、书名、作者、出版时间
-    private int bookId;
-    private String bookName;
-    private String author;
-    public Book(int bookId,String bookName,String author,String publishDate){
-        this.bookId=bookId;
-        this.bookName=bookName;
-        this.author=author;
-        this.publishDate=publishDate;
-    }
-    public int getBookId() {
-        return bookId;
+    private BookState state;
+    public Book(){
+        state = null;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setState(BookState state){
+        this.state = state;
     }
 
-    public String getBookName() {
-        return bookName;
+    public BookState getState(){
+        return state;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public boolean isBorrowed(int id){
+        return new BorrowImpl().isBorrowed(id);
     }
-
-    public String getAuthor() {
-        return author;
+    public boolean borrow(int bookId, int userId, String borrowTime){
+        return new BorrowImpl().borrowBook(bookId, userId, borrowTime);
     }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getPublishDate() {
-        return publishDate;
-    }
-
-    public void setPublishDate(String publishDate) {
-        this.publishDate = publishDate;
-    }
-
-    private String publishDate;
 }

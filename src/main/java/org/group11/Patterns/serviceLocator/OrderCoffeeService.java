@@ -6,7 +6,6 @@ package org.group11.Patterns.serviceLocator;
 import org.group11.Patterns.Builder.Coffee;
 import org.group11.Patterns.simpleFactory.CoffeeFactory;
 import org.group11.Patterns.Adapter.MyPayment;
-import org.group11.Patterns.Strategy.WechatPayment;
 import org.group11.Patterns.Adapter.AliPayment;
 import org.group11.Patterns.Adapter.CardPayment;
 import org.group11.Patterns.Command.CoffeeCommand;
@@ -115,7 +114,7 @@ public class OrderCoffeeService implements Service{
                     MyPayment payment = new MyPayment(new AliPayment());
                     payment.Payment(coffee.getPrice());
                 } else if (paymentType.equals("2")) {
-                    MyPayment payment = new MyPayment(new WechatPayment());
+                    MyPayment payment = new MyPayment(new MyPayment.WechatPayment());
                     payment.Payment(coffee.getPrice());
                 } else if (paymentType.equals("3")) {
                     MyPayment payment = new MyPayment(new CardPayment());
