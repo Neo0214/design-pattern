@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GiveBookMapper">
+    <insert id="GiveBookRecord">
+        insert into DONATION_RECORD (ID, BOOK_ID, Donation_date)
+        values ( #{ID}, #{BOOK_ID},#{Donation_date});
+    </insert>
+
+    <insert id="AddBook" useGeneratedKeys="true" keyProperty="bookId">
+        INSERT INTO BOOK (BOOK_NAME, AUTHOR, PUBLISH_DATE)
+        VALUES (#{BookName}, #{Author}, #{PublishDate});
+    </insert>
+
+    <insert id="PutBook" >
+        INSERT INTO SHELF_BELONGING(bookShelf_Id,book_Id)
+        values (#{bookShelfId},#{bookId} );
+    </insert>
+</mapper>

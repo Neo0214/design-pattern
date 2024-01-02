@@ -45,7 +45,8 @@ public class MainInterface {
                 service.execute("");
             }else if (msg.equals("9")) {
                 Service service = ServiceLocator.getService("GiveBookService");
-                service.execute("");
+                //写死一个用户id，登录整合时再修改
+                service.execute("1");
             }else if (msg.equals("10")) {
                 Service service = ServiceLocator.getService("OrderCoffeeService");
                 service.execute("");

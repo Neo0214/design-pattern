@@ -3,10 +3,6 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserMapper">
-    //对一个数据表可以建一个对应的Mapper.xml文件，也可以建多个，但是要注意namespace不能重复
-    //使用id来标识一个sql语句，resultType指定返回值类型
-    //在语句中使用#{id}来引用参数，#{}中的id是参数的名称，也就是userpasswordIpml中checkPassword方法的参数名
-    //每新建一个Mapper.xml文件，都要在mybatis-config.xml中注册，转到mybatis-config.xml看进一步内容
     <select id="checkPassword" resultType="java.lang.Integer">
         select count(*)
         from Users
