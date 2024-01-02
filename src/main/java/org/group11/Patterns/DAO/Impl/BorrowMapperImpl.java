@@ -4,10 +4,12 @@
 package org.group11.Patterns.DAO.Impl;
 
 import org.apache.ibatis.session.SqlSession;
+import org.group11.Entity.User;
 import org.group11.Patterns.DAO.BorrowMapper;
 import org.group11.Patterns.simpleFactory.JDBCFactory;
 import org.group11.Patterns.simpleFactory.ParamFactory;
 
+import java.util.List;
 import java.util.Map;
 
 public class BorrowMapperImpl implements BorrowMapper {
@@ -23,4 +25,7 @@ public class BorrowMapperImpl implements BorrowMapper {
         }
         return false;
     }
+    @Override
+    public List<User> queryBorrowUsers(){return null;};
+
 }

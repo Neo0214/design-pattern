@@ -1,5 +1,5 @@
 package org.group11.Patterns.Strategy;
 
 public interface Payment {
-    public String Payment();
+    public void Payment(int price);
 }

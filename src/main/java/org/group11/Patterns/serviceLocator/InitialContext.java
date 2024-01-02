@@ -4,23 +4,34 @@
 package org.group11.Patterns.serviceLocator;
 
 public class InitialContext {
-    public Object lookup(String name)
-    {
-        if (name.equalsIgnoreCase("ReturnBookService")) {
+    public Object lookup(String name) {
+        if (name.equalsIgnoreCase("CreateUserService")) {
+            return new CreateUserService();
+        } else if (name.equalsIgnoreCase("UserLoginService")) {
+            return new UserLoginService();
+        } else if (name.equalsIgnoreCase("AdminLoginService")) {
+            return new AdminLoginService();
+        } else if (name.equalsIgnoreCase("ReturnBookService")) {
             return new ReturnBookService();
-        }
-        //在这里命名你的服务对象类，
-        // 即MainInterface中的serviceLocator.getService("xxxx")xxxx的值
-        else if (name.equalsIgnoreCase("OrderCoffeeService")) {
+        } else if (name.equalsIgnoreCase("BorrowBookService")) {
+            return new BorrowBookService();
+        } else if (name.equalsIgnoreCase("RemindReturnService")) {
+            return new RemindReturnService();
+        } else if (name.equalsIgnoreCase("QueryAccountService")) {
+            return new QueryAccountService();
+        } else if (name.equalsIgnoreCase("QueryBookService")) {
+            return new QueryBookService();
+        } else if (name.equalsIgnoreCase("GiveBookService")) {
+            return new GiveBookService();
+        } else if (name.equalsIgnoreCase("OrderCoffeeService")) {
             return new OrderCoffeeService();
+        } else if (name.equalsIgnoreCase("ShelfManageService")) {
+            return new ShelfManageService();
+        } else if (name.equalsIgnoreCase("UseRoomService")) {
+            return new UseRoomService();
+        } else if (name.equalsIgnoreCase("CommentBookService")) {
+            return new CommentBookService();
         }
-            //先在org.group11.patterns.serviceLocator包下
-            // 创建一个你的服务对象类文件，
-            // 以上文为例即org.group11.Patterns.serviceLocator.ReturnBookService.java
-            // 内容模板参照example.java
-            // 然后在这里返回你的服务对象类，
-            //return new UserPasswordMapperService();
-
         return null;
     }
 }
