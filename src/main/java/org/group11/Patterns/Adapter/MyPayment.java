@@ -1,4 +1,4 @@
-package org.group11.Patterns.Strategy;
+package org.group11.Patterns.Adapter;
 
 public class MyPayment {
 private Payment payment;
