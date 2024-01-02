@@ -24,7 +24,8 @@
         select max(id) as maxId
         from Users;
     </select>
-    <insert id="insertUser">
-        insert into Users (id, user_name, user_key) values(#{id}, #{name}, #{user_key});
-    </insert>
+    <select id="insertUser" resultType="org.group11.Entity.CreateUser">
+        INSERT INTO users (USER_NAME, USER_KEY)
+        VALUES (#{USER_NAME}, #{USER_KEY});
+    </select>
 </mapper>
