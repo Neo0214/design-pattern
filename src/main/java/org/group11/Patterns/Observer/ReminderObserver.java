@@ -1,13 +1,13 @@
 package org.group11.Patterns.Observer;
 
 import org.group11.Entity.Borrow;
-import org.group11.Patterns.Singleton.ReminderService;
+import org.group11.Patterns.Singleton.ReminderSingleton;
 import java.util.List;
 
 public class ReminderObserver implements Observer {
     @Override
     public void update(int userId) {
-        ReminderService reminderService = ReminderService.getInstance();
+        ReminderSingleton reminderService = ReminderSingleton.getInstance();
         List<Borrow> unreturnedBooks = reminderService.remind(userId);
         // 实现提醒逻辑，比如打印未归还的书籍
         if (!unreturnedBooks.isEmpty()) {

@@ -1,6 +1,6 @@
 package org.group11.Patterns.serviceLocator;
 import org.group11.Patterns.Singleton.Reminder;
-import org.group11.Patterns.Singleton.ReminderService;
+import org.group11.Patterns.Singleton.ReminderSingleton;
 import org.group11.Patterns.Decorator.LoggingReminderDecorator;
 import org.group11.Entity.Borrow;
 import java.util.List;
@@ -16,7 +16,7 @@ public class RemindReturnService implements Service {
         System.out.println("Executing RemindReturnService");
 
         // 获取ReminderService的单例
-        Reminder reminderService = ReminderService.getInstance();
+        Reminder reminderService = ReminderSingleton.getInstance();
 
         // 使用LoggingReminderDecorator装饰reminderService
         Reminder decoratedReminderService = new LoggingReminderDecorator(reminderService);
@@ -28,8 +28,8 @@ public class RemindReturnService implements Service {
         List<Borrow> unreturnedBooks = decoratedReminderService.remind(userId);
 
         // 进一步处理unreturnedBooks，例如打印书籍信息
-        for (Borrow book : unreturnedBooks) {
-            System.out.println(book); // 假设Borrow类重写了toString方法
-        }
+        //for (Borrow book : unreturnedBooks) {
+            //System.out.println(book); // 假设Borrow类重写了toString方法
+        //}
     }
 }
