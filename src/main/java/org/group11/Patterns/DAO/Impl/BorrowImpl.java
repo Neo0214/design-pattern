@@ -69,4 +69,13 @@ public class BorrowImpl implements BorrowMapper {
         }
         return false;
     }
+
+    @Override
+    public String latestBorrow(int userId){
+        Map<String,String> params= ParamFactory.getParam("userId",String.valueOf(userId));
+        SqlSession sqlSession= JDBCFactory.Instance();
+        String name=sqlSession.selectOne("BorrowRecordMapper.latestBorrow",params);
+        sqlSession.close();
+        return name;
+    }
 }

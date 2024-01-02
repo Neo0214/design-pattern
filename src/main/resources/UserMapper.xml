@@ -18,8 +18,17 @@
         from Users
         where user_name = #{name};
     </select>
-    <select id="insertUser" resultType="org.group11.Entity.CreateUser">
-        INSERT INTO users (USER_NAME, USER_KEY)
-        VALUES (#{USER_NAME}, #{USER_KEY});
+    <select id="getUser" resultType="org.group11.Patterns.transforObject.UserTO">
+        select *
+        from Users
+        where user_name = #{name}
+            and user_key = #{user_key};
     </select>
+    <select id="getMaxId" resultType="java.lang.Integer">
+        select max(id) as maxId
+        from Users;
+    </select>
+    <insert id="insertUser">
+        insert into Users (id, user_name, user_key) values(#{id}, #{name}, #{user_key});
+    </insert>
 </mapper>
