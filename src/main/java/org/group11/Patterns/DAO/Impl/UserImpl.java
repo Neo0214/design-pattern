@@ -4,7 +4,7 @@
 package org.group11.Patterns.DAO.Impl;
 
 import org.apache.ibatis.session.SqlSession;
-// import org.group11.Entity.User;
+import org.group11.Entity.User;
 import org.group11.Patterns.DAO.UserMapper;
 import org.group11.Patterns.simpleFactory.JDBCFactory;
 import org.group11.Patterns.simpleFactory.ParamFactory;
@@ -28,6 +28,15 @@ public class UserImpl implements UserMapper {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<User> getUserByName(String name) {
+        Map<String,String> params= ParamFactory.getParam("name",name);
+        SqlSession sqlSession= JDBCFactory.Instance();
+        List<User> users=sqlSession.selectList("UserMapper.getUserByName",params);
+        sqlSession.close();
+        return users;
     }
 
     @Override
