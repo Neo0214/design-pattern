@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ShelfManageMapper">
+
+    <!-- 查询书籍是否存在 -->
+    <select id="getShelfIdByBookId" parameterType="string" resultType="string">
+        SELECT BOOKSHELF_ID FROM shelf_belonging WHERE BOOK_ID = #{BOOK_ID}
+    </select>
+
+    <!-- 更新书架ID -->
+    <update id="updateShelfId" parameterType="map">
+        UPDATE shelf_belonging SET BOOKSHELF_ID = #{SHELF_ID} WHERE BOOK_ID = #{BOOK_ID}
+    </update>
+
+    <!-- 插入新书籍和书架ID -->
+    <insert id="insertBookShelf" parameterType="map">
+        INSERT INTO shelf_belonging (BOOK_ID, BOOKSHELF_ID) VALUES (#{BOOK_ID}, #{SHELF_ID})
+    </insert>
+
+</mapper>
