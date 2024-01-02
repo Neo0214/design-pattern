@@ -2,13 +2,13 @@ package org.group11.Patterns.Template;
 
 import org.group11.Patterns.DAO.Impl.GiveBookImpl;
 import org.group11.Tools.Input;
-import org.group11.Entity.Book;
+import org.group11.Entity.BookInfo;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class UserBookDonation extends BookDonationTemplate {
     @Override
-    protected Book createBook() {
+    protected BookInfo createBook() {
         System.out.println("请输入书籍信息");
         System.out.println("书名：");
         String BookName = Input.getInput();
@@ -17,7 +17,7 @@ public class UserBookDonation extends BookDonationTemplate {
         System.out.println("出版日期(yyyy-mm-dd)：");
         String PublishDate = Input.getInput();
         int BookId = new GiveBookImpl().AddBook(BookName, Author, PublishDate);
-        Book book = new Book(BookId, BookName, Author, PublishDate);
+        BookInfo book = new BookInfo(BookId, BookName, Author, PublishDate);
         return book;
     }
     @Override
