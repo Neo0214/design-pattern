@@ -1,6 +1,7 @@
 package org.group11.Patterns.serviceLocator;
 
 import org.apache.ibatis.session.SqlSession;
+import org.group11.Entity.CreateUser;
 import org.group11.Patterns.simpleFactory.JDBCFactory;
 import org.group11.Patterns.simpleFactory.UserFactory;
 import org.group11.Tools.Input;
@@ -24,7 +25,7 @@ public class CreateUserService implements Service{
         System.out.println("请输入密码");
         password= Input.getInput();
         assert sqlSession != null;
-        User user=new UserFactory().createUser(sqlSession,username,password);
+        CreateUser user=new UserFactory().createUser(sqlSession,username,password);
         sqlSession.commit();
         System.out.println("创建成功");
     }
