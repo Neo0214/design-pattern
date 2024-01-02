@@ -13,4 +13,13 @@
         where id = #{id}
             and user_key = #{user_key};
     </select>
+    <select id="getUserByName" resultType="org.group11.Entity.User">
+        select *
+        from Users
+        where user_name = #{name};
+    </select>
+    <select id="insertUser" resultType="org.group11.Entity.CreateUser">
+        INSERT INTO users (USER_NAME, USER_KEY)
+        VALUES (#{USER_NAME}, #{USER_KEY});
+    </select>
 </mapper>

@@ -30,13 +30,13 @@ public class MainInterface {
                 service.execute("");
             }else if (msg.equals("4")) {
                 Service service = ServiceLocator.getService("BorrowBookService");
-                service.execute("");
+                service.execute("0");
             }else if (msg.equals("5")) {
                 Service service = ServiceLocator.getService("ReturnBookService");
                 service.execute("0");
             }else if (msg.equals("6")) {
                 Service service = ServiceLocator.getService("RemindReturnService");
-                service.execute("");
+                service.execute("1");
             }else if (msg.equals("7")) {
                 Service service = ServiceLocator.getService("QueryAccountService");
                 service.execute("");

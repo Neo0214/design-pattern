@@ -33,4 +33,40 @@ public class BorrowImpl implements BorrowMapper {
         sqlSession.close();
         return users;
     }
+
+
+    @Override
+    public boolean borrowBook(int bookId, int userId, String curTime){
+        Map<String,String> params = ParamFactory.getParam("borrowDate",curTime,"bookId",String.valueOf(bookId),"userId",String.valueOf(userId));
+        SqlSession sqlSession = JDBCFactory.Instance();
+        int isBorrow = sqlSession.insert("BorrowRecordMapper.borrowBook",params);
+        sqlSession.commit();
+        sqlSession.close();
+        if(isBorrow!=0){
+            return true;
+        }
+        return false;
+    }
+    @Override
+    public boolean isBorrowed(int bookId){
+        Map<String,String> params= ParamFactory.getParam("bookId",String.valueOf(bookId));
+        SqlSession sqlSession= JDBCFactory.Instance();
+        int isBorrowed=sqlSession.selectOne("BorrowRecordMapper.isBorrowed",params);
+        sqlSession.close();
+        if (isBorrowed!=0){
+            return true;
+        }
+        return false;
+    }
+    @Override
+    public boolean hasUnreturned(int userId){
+        Map<String,String> params= ParamFactory.getParam("userId",String.valueOf(userId));
+        SqlSession sqlSession= JDBCFactory.Instance();
+        int has=sqlSession.selectOne("BorrowRecordMapper.hasUnreturned",params);
+        sqlSession.close();
+        if (has!=0){
+            return true;
+        }
+        return false;
+    }
 }

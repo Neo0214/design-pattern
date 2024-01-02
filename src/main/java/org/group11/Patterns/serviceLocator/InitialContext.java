@@ -32,6 +32,12 @@ public class InitialContext {
         } else if (name.equalsIgnoreCase("CommentBookService")) {
             return new CommentBookService();
         }
+        else if (name.equalsIgnoreCase("NoticeReturnService")) {
+            return new NoticeReturnService();
+        }
+        else if (name.equalsIgnoreCase("NoticeReturnService")) {
+            return new NoticeReturnService();
+        }
         return null;
     }
 }

@@ -8,4 +8,28 @@
         set return_time = #{returnDate}, borrow_condition = '已还'
         where book_id = #{bookId} and id = #{userId};
     </update>
+    <select id="allBorrowUser" resultType="org.group11.Entity.User">
+        select *
+        from Users
+        where id in (
+            select id
+            from borrow_record
+            where borrow_condition= '未还'
+        );
+    </select>
+
+    <insert id="borrowBook" parameterType="java.util.Map">
+        insert into borrow_record (book_id, id, borrow_time, borrow_condition)
+        values (#{bookId}, #{userId}, #{borrowDate}, '未还')
+    </insert>
+    <select id="isBorrowed" resultType="java.lang.Integer">
+        select count(*)
+        from borrow_record
+        where book_id = #{bookId} and (borrow_condition = '未还' or borrow_condition = '逾期');
+    </select>
+    <select id="hasUnreturned" resultType="java.lang.Integer">
+        select count(*)
+        from borrow_record
+        where id = #{userId} and (borrow_condition = '未还' or borrow_condition = '逾期');
+    </select>
 </mapper>
