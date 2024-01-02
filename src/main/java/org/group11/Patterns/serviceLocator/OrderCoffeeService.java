@@ -5,10 +5,10 @@ package org.group11.Patterns.serviceLocator;
 
 import org.group11.Patterns.Builder.Coffee;
 import org.group11.Patterns.simpleFactory.CoffeeFactory;
-import org.group11.Patterns.Strategy.MyPayment;
+import org.group11.Patterns.Adapter.MyPayment;
 import org.group11.Patterns.Strategy.WechatPayment;
-import org.group11.Patterns.Strategy.AliPayment;
-import org.group11.Patterns.Strategy.CardPayment;
+import org.group11.Patterns.Adapter.AliPayment;
+import org.group11.Patterns.Adapter.CardPayment;
 import org.group11.Patterns.Command.CoffeeCommand;
 import org.group11.Patterns.Command.CoffeeMaker;
 import org.group11.Patterns.Command.AddEspressoCommand;
